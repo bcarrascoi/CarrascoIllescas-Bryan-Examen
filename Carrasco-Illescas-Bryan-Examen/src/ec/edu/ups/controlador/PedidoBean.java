@@ -43,10 +43,7 @@ public class PedidoBean implements Serializable {
 		// TODO Auto-generated constructor stub
 	}
 	
-	@PostConstruct
-	public void init() {
-		listaPedidos = (List<Pedido>) ejPedidoFacade.findAll();
-	}
+	
 
 	public PedidoFacade getEjPedidoFacade() {
 		return ejPedidoFacade;

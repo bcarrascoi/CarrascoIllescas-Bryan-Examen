@@ -30,21 +30,46 @@
         <div class="container">
         
             <div class="masthead-subheading">
-            <div class="masthead-heading text-uppercase">Agregar Categoria</div>
+            <div class="masthead-heading text-uppercase">AGREGAR PEDIDO</div>
                 <h:form id="formulario">
                 	
                 	<br></br>
-                    <label> Nombre </label>
+                    <label> NUMERO PEDIDO  </label>
                     <br></br>
-                    <h:inputText id="nombre" value="#{categoriaBean.nombre}" />
-                    <br></br>
-                    <br></br>
-                    <label> Descripcion </label>
-                    <br></br>
-                    <h:inputText id="descripcion" value="#{categoriaBean.descripcion}" />
+                    <h:inputText id="numPedido" value="#{pedidoBean.numPedido}" />
                     <br></br>
                     <br></br>
-                    <h:commandButton class="btn btn-primary btn-xl text-uppercase js-scroll-trigger" value="Agregar" action="#{categoriaBean.add}" />
+                    <label> FECHA </label>
+                    <br></br>
+                    <h:inputText id="fecha" value="#{pedidoBean.fecha}" />
+                    <br></br>
+                    <br></br>
+                    <label> NOMBRE DEL CLIENTE </label>
+                    <br></br>
+                    <h:inputText id="nombreCliente" value="#{pedidoBean.nombreCliente}" />
+                    <br></br>
+                    <br></br>
+                    <label> SUBTOTAL </label>
+                    <br></br>
+                    <h:inputText id="subtotal" value="#{pedidoBean.subtotal}" />
+                    <br></br>
+                    <br></br>
+                    <label> IVA </label>
+                    <br></br>
+                    <h:inputText id="iva" value="#{pedidoBean.iva}" />
+                    <br></br>
+                    <br></br>
+                    <label> TOTAL </label>
+                    <br></br>
+                    <h:inputText id="total" value="#{pedidoBean.total}" />
+                    <br></br>
+                    <br></br>
+                    <label> OBSERVACIONES </label>
+                    <br></br>
+                    <h:inputText id="observaciones" value="#{pedidoBean.observaciones}" />
+                    <br></br>
+                    <br></br>
+                    <h:commandButton class="btn btn-primary btn-xl text-uppercase js-scroll-trigger" value="Agregar Pedido" action="#{pedidoBean.add}" />
                 </h:form>
             </div>
         </div>

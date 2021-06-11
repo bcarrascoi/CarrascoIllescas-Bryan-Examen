@@ -1,7 +1,6 @@
 package ec.edu.ups.pojos;
 
 import java.io.Serializable;
-import java.sql.Date;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
@@ -20,7 +19,7 @@ public class TarjetaDeCredito implements Serializable{
 	@GeneratedValue (strategy = GenerationType.IDENTITY)
 	private int numTarjeta;
 	private String nombreTitular;
-	private Date fechaCaducidad;
+	private String fechaCaducidad;
 	private String codigoVerificacion;
 	
 	@OneToMany(cascade = CascadeType.ALL, mappedBy = "tarjetaDeCredito")
@@ -30,7 +29,7 @@ public class TarjetaDeCredito implements Serializable{
 		super();
 		// TODO Auto-generated constructor stub
 	}
-	public TarjetaDeCredito(int numTarjeta, String nombreTitular, Date fechaCaducidad, String codigoVerificacion,
+	public TarjetaDeCredito(int numTarjeta, String nombreTitular, String fechaCaducidad, String codigoVerificacion,
 			List<Pedido> pedidos) {
 		super();
 		this.numTarjeta = numTarjeta;
@@ -51,10 +50,10 @@ public class TarjetaDeCredito implements Serializable{
 	public void setNombreTitular(String nombreTitular) {
 		this.nombreTitular = nombreTitular;
 	}
-	public Date getFechaCaducidad() {
+	public String getFechaCaducidad() {
 		return fechaCaducidad;
 	}
-	public void setFechaCaducidad(Date fechaCaducidad) {
+	public void setFechaCaducidad(String fechaCaducidad) {
 		this.fechaCaducidad = fechaCaducidad;
 	}
 	public String getCodigoVerificacion() {

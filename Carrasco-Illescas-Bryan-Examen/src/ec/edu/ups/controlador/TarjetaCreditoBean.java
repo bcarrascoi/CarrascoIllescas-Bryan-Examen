@@ -111,7 +111,10 @@ public class TarjetaCreditoBean implements Serializable{
 	
 	
 	
-	
+	public List<TarjetaDeCredito> listarTarjetas(){
+		listaTarjetas = (List<TarjetaDeCredito>) ejCreditoFacade.findAll();
+		return listaTarjetas;
+	}
 	
 	
 }
