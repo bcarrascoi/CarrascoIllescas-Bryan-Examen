@@ -1,7 +1,6 @@
 package ec.edu.ups.pojos;
 
 import java.io.Serializable;
-import java.sql.Date;
 import java.util.ArrayList;
 
 import javax.persistence.CascadeType;
@@ -20,7 +19,7 @@ public class Pedido implements Serializable{
 	@Id
 	@GeneratedValue (strategy=GenerationType.IDENTITY)
 	private int numPedido;
-	private Date fecha;
+	private String fecha;
 	private String nombreCliente;
 	private double subtotal;
 	private int iva;
@@ -38,7 +37,7 @@ public class Pedido implements Serializable{
 		// TODO Auto-generated constructor stub
 	}
 
-	public Pedido(int numPedido, Date fecha, String nombreCliente, double subtotal, int iva, double total, String observaciones,
+	public Pedido(int numPedido, String fecha, String nombreCliente, double subtotal, int iva, double total, String observaciones,
 			ArrayList<Comidas> comidas, TarjetaDeCredito tarjetaDeCredito) {
 		super();
 		this.numPedido = numPedido;
@@ -59,11 +58,11 @@ public class Pedido implements Serializable{
 		this.numPedido = numPedido;
 	}
 
-	public Date getFecha() {
+	public String getFecha() {
 		return fecha;
 	}
 
-	public void setFecha(Date fecha) {
+	public void setFecha(String fecha) {
 		this.fecha = fecha;
 	}
 

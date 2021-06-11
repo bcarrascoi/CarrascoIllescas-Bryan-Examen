@@ -29,7 +29,7 @@ public class ComidaBean implements Serializable {
 	
 	private int codigoComida;
 	private String nombre;
-	private int precioUnitario;
+	private double precioUnitario;
 	
 	private Comidas comida;
 	
@@ -85,11 +85,11 @@ public class ComidaBean implements Serializable {
 		this.nombre = nombre;
 	}
 
-	public int getPrecioUnitario() {
+	public double getPrecioUnitario() {
 		return precioUnitario;
 	}
 
-	public void setPrecioUnitario(int precioUnitario) {
+	public void setPrecioUnitario(double precioUnitario) {
 		this.precioUnitario = precioUnitario;
 	}
 
@@ -100,6 +100,18 @@ public class ComidaBean implements Serializable {
 	public void setComida(Comidas comida) {
 		this.comida = comida;
 	}
+	
+	public String add() {
+		ejComidaFacade.create(new Comidas());
+		listaComidas= (List<Comidas>) ejComidaFacade.findAll();
+	return null;
+	}
+	
+	public List<Comidas> listarComidas(){
+		listaComidas = (List<Comidas>) ejComidaFacade.findAll();
+	return listaComidas;
+	}
+	
 	
 	
 	

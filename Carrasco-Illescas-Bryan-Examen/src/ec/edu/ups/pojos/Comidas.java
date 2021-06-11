@@ -17,7 +17,7 @@ public class Comidas implements Serializable {
 	@GeneratedValue (strategy=GenerationType.IDENTITY)
 	private int codigo;
 	private String nombre;
-	private int precioUnitario;
+	private double precioUnitario;
 	
 	@ManyToOne
 	@JoinColumn(name="ped_id" ,nullable = false )
@@ -28,7 +28,7 @@ public class Comidas implements Serializable {
 		// TODO Auto-generated constructor stub
 	}
 
-	public Comidas(int codigo, String nombre, int precioUnitario, Pedido pedido) {
+	public Comidas(int codigo, String nombre, double precioUnitario, Pedido pedido) {
 		super();
 		this.codigo = codigo;
 		this.nombre = nombre;
@@ -52,11 +52,11 @@ public class Comidas implements Serializable {
 		this.nombre = nombre;
 	}
 
-	public int getPrecioUnitario() {
+	public double getPrecioUnitario() {
 		return precioUnitario;
 	}
 
-	public void setPrecioUnitario(int precioUnitario) {
+	public void setPrecioUnitario(double precioUnitario) {
 		this.precioUnitario = precioUnitario;
 	}
 

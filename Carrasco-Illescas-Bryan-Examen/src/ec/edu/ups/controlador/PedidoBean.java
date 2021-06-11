@@ -1,8 +1,8 @@
 package ec.edu.ups.controlador;
 
 import java.io.Serializable;
-import java.sql.Date;
 
+import javax.annotation.PostConstruct;
 import javax.ejb.EJB;
 import javax.enterprise.context.SessionScoped;
 import javax.faces.annotation.FacesConfig;
@@ -30,7 +30,7 @@ public class PedidoBean implements Serializable {
 	
 	
 	private int numPedido;
-	private Date fecha;
+	private String fecha;
 	private String nombreCliente;
 	private double subtotal;
 	private int iva;
@@ -41,6 +41,11 @@ public class PedidoBean implements Serializable {
 	
 	public PedidoBean() {
 		// TODO Auto-generated constructor stub
+	}
+	
+	@PostConstruct
+	public void init() {
+		listaPedidos = (List<Pedido>) ejPedidoFacade.findAll();
 	}
 
 	public PedidoFacade getEjPedidoFacade() {
@@ -83,11 +88,11 @@ public class PedidoBean implements Serializable {
 		this.numPedido = numPedido;
 	}
 
-	public Date getFecha() {
+	public String getFecha() {
 		return fecha;
 	}
 
-	public void setFecha(Date fecha) {
+	public void setFecha(String fecha) {
 		this.fecha = fecha;
 	}
 
@@ -139,8 +144,16 @@ public class PedidoBean implements Serializable {
 		this.pedido = pedido;
 	}
 	
-	
+	public String add() {
+		ejPedidoFacade.create(new Pedido(0,fecha, nombreCliente, this.numPedido, iva, subtotal, nombreCliente, null, null));
+		listaPedidos = (List<Pedido>) ejPedidoFacade.findAll();
+	return null;
+	}
 	
 
+	public List<Pedido> listarPedidos(){
+		listaPedidos = (List<Pedido>) ejPedidoFacade.findAll();
+		return listaPedidos;
+	}
 	
 }
