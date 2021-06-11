@@ -6,6 +6,8 @@ import java.util.ArrayList;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
@@ -16,7 +18,8 @@ public class Pedido implements Serializable{
 
 	private static final long serialVersionUID = 1L;
 	@Id
-	private int numero;
+	@GeneratedValue (strategy=GenerationType.IDENTITY)
+	private int numPedido;
 	private Date fecha;
 	private String nombreCliente;
 	private double subtotal;
@@ -24,7 +27,7 @@ public class Pedido implements Serializable{
 	private double total;
 	private String observaciones;
 	
-	@OneToMany(cascade = CascadeType.ALL,mappedBy = "pedidos")
+	@OneToMany(cascade = CascadeType.ALL,mappedBy = "pedido")
 	private ArrayList<Comidas> comidas;
 	
 	@ManyToOne
@@ -35,10 +38,10 @@ public class Pedido implements Serializable{
 		// TODO Auto-generated constructor stub
 	}
 
-	public Pedido(int numero, Date fecha, String nombreCliente, double subtotal, int iva, double total, String observaciones,
+	public Pedido(int numPedido, Date fecha, String nombreCliente, double subtotal, int iva, double total, String observaciones,
 			ArrayList<Comidas> comidas, TarjetaDeCredito tarjetaDeCredito) {
 		super();
-		this.numero = numero;
+		this.numPedido = numPedido;
 		this.fecha = fecha;
 		this.nombreCliente = nombreCliente;
 		this.subtotal = subtotal;
@@ -49,12 +52,11 @@ public class Pedido implements Serializable{
 		this.tarjetaDeCredito = tarjetaDeCredito;
 	}
 
-	public int getNumero() {
-		return numero;
+	public int getNumPedido() {
+		return numPedido;
 	}
-
-	public void setNumero(int numero) {
-		this.numero = numero;
+	public void setNumPedido(int numPedido) {
+		this.numPedido = numPedido;
 	}
 
 	public Date getFecha() {
@@ -121,7 +123,7 @@ public class Pedido implements Serializable{
 
 	@Override
 	public String toString() {
-		return "Pedido [numero=" + numero + ", fecha=" + fecha + ", nombreCliente=" + nombreCliente + ", subtotal="
+		return "Pedido [numPedido=" + numPedido + ", fecha=" + fecha + ", nombreCliente=" + nombreCliente + ", subtotal="
 				+ subtotal + ", iva=" + iva + ", total=" + total + ", observaciones=" + observaciones + ", comidas="
 				+ comidas + ", tarjetaDeCredito=" + tarjetaDeCredito + "]";
 	}

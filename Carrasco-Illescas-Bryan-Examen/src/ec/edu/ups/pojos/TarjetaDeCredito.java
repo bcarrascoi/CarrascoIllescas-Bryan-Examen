@@ -23,7 +23,7 @@ public class TarjetaDeCredito implements Serializable{
 	private Date fechaCaducidad;
 	private String codigoVerificacion;
 	
-	@OneToMany(cascade = CascadeType.ALL, mappedBy = "tarjetas")
+	@OneToMany(cascade = CascadeType.ALL, mappedBy = "tarjetaDeCredito")
 	private List<Pedido> pedidos;
 
 	public TarjetaDeCredito() {

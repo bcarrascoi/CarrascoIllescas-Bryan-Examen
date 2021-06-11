@@ -2,19 +2,12 @@
 <persistence version="2.2" xmlns="http://xmlns.jcp.org/xml/ns/persistence" 
 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
 xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org/xml/ns/persistence/persistence_2_2.xsd">
-	<persistence-unit name="Prueba"
+	<persistence-unit name="Examen"
 	transaction-type="JTA">
-			<jta-data-source>jdbc/_proveedores</jta-data-source>
-		<class>ec.edu.ups.pojos.Ciudad</class>
-		<class>ec.edu.ups.pojos.Bodega</class>
-		<class>ec.edu.ups.pojos.Categoria</class>
-		<class>ec.edu.ups.pojos.Empleados</class>
-		<class>ec.edu.ups.pojos.FacturaCabecera</class>
-		<class>ec.edu.ups.pojos.FacturaDetalle</class>
-		<class>ec.edu.ups.pojos.Producto</class>
-		<class>ec.edu.ups.pojos.BodegaProducto</class>
-		<class>ec.edu.ups.pojos.Pedido_Cabecera</class>
-		<class>ec.edu.ups.pojos.Pedido_Detalle</class> 
+			<jta-data-source>jdbc/_restaurante</jta-data-source>
+		<class>ec.edu.ups.pojos.Comidas</class>
+		<class>ec.edu.ups.pojos.Pedido</class>
+		<class>ec.edu.ups.pojos.TarjetaDeCredito</class>
 		<properties>
 			<property
 				name="javax.persistence.schema-generation.database.action"
