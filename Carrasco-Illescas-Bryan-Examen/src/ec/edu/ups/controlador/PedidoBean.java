@@ -2,7 +2,6 @@ package ec.edu.ups.controlador;
 
 import java.io.Serializable;
 
-import javax.annotation.PostConstruct;
 import javax.ejb.EJB;
 import javax.enterprise.context.SessionScoped;
 import javax.faces.annotation.FacesConfig;
@@ -12,6 +11,7 @@ import com.sun.tools.javac.util.List;
 
 import ec.edu.ups.ejb.PedidoFacade;
 import ec.edu.ups.pojos.Pedido;
+import ec.edu.ups.pojos.TarjetaDeCredito;
 
 @FacesConfig(version = FacesConfig.Version.JSF_2_3)
 @Named
@@ -36,6 +36,8 @@ public class PedidoBean implements Serializable {
 	private int iva;
 	private double total;
 	private String observaciones;
+	private TarjetaDeCredito tarjetaDeCredito;
+	private int numTarjeta;
 	
 	private Pedido pedido;
 	
@@ -44,7 +46,20 @@ public class PedidoBean implements Serializable {
 	}
 	
 	
+public int getNumTarjeta() {
+	return numTarjeta;
+}
+public TarjetaDeCredito getTarjetaDeCredito() {
+	return tarjetaDeCredito;
+}
 
+
+public void setNumTarjeta(int numTarjeta) {
+	this.numTarjeta = numTarjeta;
+}
+public void setTarjetaDeCredito(TarjetaDeCredito tarjetaDeCredito) {
+	this.tarjetaDeCredito = tarjetaDeCredito;
+}
 	public PedidoFacade getEjPedidoFacade() {
 		return ejPedidoFacade;
 	}
@@ -141,8 +156,9 @@ public class PedidoBean implements Serializable {
 		this.pedido = pedido;
 	}
 	
+	
 	public String add() {
-		ejPedidoFacade.create(new Pedido(0,fecha, nombreCliente, this.numPedido, iva, subtotal, nombreCliente, null, null));
+		ejPedidoFacade.create(new Pedido());
 		listaPedidos = (List<Pedido>) ejPedidoFacade.findAll();
 	return null;
 	}
