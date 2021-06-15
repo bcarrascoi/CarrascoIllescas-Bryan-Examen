@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html  
+	xmlns:h="http://xmlns.jcp.org/jsf/html" 
+	xmlns:f="http://xmlns.jcp.org/jsf/core">
+<h:head>
+  <link href="css/style.css" rel="stylesheet" />
+</h:head>
+
+<h:body>
+   <h2> AGREGAR COMIDA </h2>
+      <div id="main-container">
+      <h:form id="formulario2">
+      								<br></br>
+										<label> NOMBRE COMIDA</label>
+										<h:inputText id="nombreComida" value="#{comidaBean.nombre}" />
+										<br></br>	
+										<br></br>
+										<label> PRECIO UNITARIO</label>
+										<h:inputText id="precioUnitario" value="#{comidaBean.precioUnitario}" />	
+									 <br></br>
+									 <br></br>
+									<h:commandButton value="Agregar Comida" action="#{comidaBean.add}"
+										class="btn btn-success">
+
+									</h:commandButton>
+									
+						</h:form>			
+  </div>
+  <div id="main-container">
+    <h1 id="title">CARRASCO RESTAURANT'S </h1>
+    <h:form id="formulario">
+    
+     
+      <div class="card-body">
+								<div class="modal-body">
+
+									
+										<br></br>
+									<br></br>
+									<label> FECHA:</label>
+											
+											<h:inputText value="#{pedidoBean.fechaPedido}" size="10"
+												/>
+									<br></br>
+									<br></br>
+								<label>NOMBRE CLIENTE </label>
+											<h:inputText value="#{pedidoBean.nombreCliente}" size="10"
+												/>
+											
+									<br></br>
+									<br></br>
+											<label>NOMBRE COMIDA</label>
+											<h:inputText value="#{pedidoBean.comida}" size="10"
+												/>
+										
+										
+										<br></br>
+										<br></br>
+											<label>N. TARJETA</label>
+											<h:inputText value="#{pedidoBean.tarjetaDeCredito}" size="10"
+												 />
+										
+										<br></br>
+										<br></br>
+											<label>SUBTOTAL </label>
+								
+											<h:inputText value="#{pedidoBean.subtotal}" size="10"
+												 />
+										
+										<br></br>
+										<br></br>
+											<label>IVA </label>
+											<h:inputText value="#{pedidoBean.iva}" size="10"
+												/>
+									
+									<br></br>
+									<br></br>
+									<label>TOTAL </label>
+											<h:inputText value="#{pedidoBean.total}" size="10"
+												 />
+											
+									<br></br>
+									<br></br>
+									<label>OBSERVACIONES</label>
+											
+											<h:inputText value="#{pedidoBean.observaciones}" size="10"
+												/>
+											
+										<br></br>
+										<br></br>
+									<h:commandButton value="Agregar Pedido" action="#{pedidoBean.guardar}"
+										class="btn btn-success">
+				
+										</h:commandButton>
+					<br></br>					
+								</div>
+							</div>
+       </h:form>
+      </div>
+    <div class="collapse navbar-collapse" id="navbarResponsive">
+                <h:form >
+	                <ul class="navbar-nav text-uppercase ml-auto">
+	                    <li class="nav-item">
+	                    <h:commandLink  class="nav-link js-scroll-trigger" value = "listarPedido" action = "listarPedido.xhtml" />
+	                    </li>
+	                </ul>
+                </h:form>
+                </div>
+ 
+</h:body>
+	                    
+	     
+</html>

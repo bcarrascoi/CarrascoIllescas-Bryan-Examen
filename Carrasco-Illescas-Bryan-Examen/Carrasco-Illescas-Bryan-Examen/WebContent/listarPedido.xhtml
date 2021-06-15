@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html  
+	xmlns:h="http://xmlns.jcp.org/jsf/html" 
+	xmlns:f="http://xmlns.jcp.org/jsf/core">
+<h:head>
+  <link href="css/style.css" rel="stylesheet" />
+</h:head>
+
+<h:body>
+  <div id="main-container">
+    <h1 id="title">CARRASCO RESTAURANT'S </h1>
+    <h:form class="was-validated">
+			<section id="details">
+			<div class="container">
+				<div class="row">
+					<div class="col">
+						<div class="card">
+							<div class="card-header">
+								<i class="fas fa-truck-moving"></i>
+								<h4>LISTAR PEDIDO </h4>
+								<div class="mb-3 row">
+										<label for="staticEmail" class="col-sm-2 col-form-label">Buscar por Numero de Tarjeta</label>
+										<div class="col-sm-10">
+											<h:inputText  id="tarjeta"  type="text" class="form-control"
+												value="#{pedidoBean.tarjetaDeCredito.numTarjeta}"   />
+												<br></br>
+											<h:commandButton value="Buscar Por # Tarjeta"   action="#{pedidoBean.buscarPorTarjeta()}">
+											<br></br>
+										<f:ajax execute="tarjeta" render="table-1" >  </f:ajax>
+										
+										    </h:commandButton>			
+										</div>
+										
+									</div>
+									<div class="m-3 row">
+										<label for="staticEmail" class="col-sm-2 col-form-label">Buscar por Nombre de Comida</label>
+										<div class="col-sm-10">
+											<h:inputText  id="comida"  type="text" class="form-control"
+												value="#{pedidoBean.comida.nombre}"   />
+												<br></br>
+											<h:commandButton value="Buscar Por Nombre Comida"   action="#{pedidoBean.buscarPorNombre()}">
+											<br></br>
+										<f:ajax execute="comida" render="table-1" >  </f:ajax>
+										
+										    </h:commandButton>			
+										</div>
+										
+									</div>
+									
+								
+							</div>
+							<div class="card-body">
+								<div class="modal-body">
+
+									<h:dataTable value="#{pedidoBean.listaPedidos}" var="c"
+										styleClass="table table-striped" id="table-1"
+										headerClass="cabeceraTabla" rowClasses="filaPar,filaImpar">
+											<h:column>
+											<f:facet name="header">Fecha</f:facet>
+											<h:inputText value="#{c.fechaPedido}" size="10"
+												rendered="#{c.editable}" />
+											<h:outputText value="#{c.fechaPedido}" rendered="#{not c.editable}" />
+										</h:column>
+										<h:column>
+											<f:facet name="header">Cliente</f:facet>
+											<h:inputText value="#{c.nombreCliente}" size="10"
+												rendered="#{c.editable}" />
+											<h:outputText value="#{c.nombreCliente}"
+												rendered="#{not c.editable}" />
+										</h:column>
+										
+										<h:column>
+											<f:facet name="header">Comida</f:facet>
+											<h:inputText value="#{c.comidas[0]}" size="10"
+												rendered="#{c.editable}" />
+											<h:outputText value="#{c.comidas[0].nombre}"
+												rendered="#{not c.editable}" />
+										</h:column>
+										
+										<h:column>
+											<f:facet name="header">Tarjeta</f:facet>
+											<h:inputText value="#{c.tarjetaDeCredito}" size="10"
+												rendered="#{c.editable}" />
+											<h:outputText value="#{c.tarjetaDeCredito.numTarjeta}"
+												rendered="#{not c.editable}" />
+										</h:column>
+
+										<h:column>
+											<f:facet name="header">Subtotal</f:facet>
+											<h:inputText value="#{c.subtotal}" size="10"
+												rendered="#{c.editable}" />
+											<h:outputText value="#{c.subtotal}"
+												rendered="#{not c.editable}" />
+										</h:column>
+										<h:column>
+											<f:facet name="header">IVA</f:facet>
+											<h:inputText value="#{c.iva}" size="10"
+												rendered="#{c.editable}" />
+											<h:outputText value="#{c.iva}" rendered="#{not c.editable}" />
+										</h:column>
+										<h:column>
+											<f:facet name="header">Total</f:facet>
+											<h:inputText value="#{c.total}" size="10"
+												rendered="#{c.editable}" />
+											<h:outputText value="#{c.total}" rendered="#{not c.editable}" />
+										</h:column>
+										<h:column>
+											<f:facet name="header">Observaciones</f:facet>
+											<h:inputText value="#{c.observaciones}" size="10"
+												rendered="#{c.editable}" />
+											<h:outputText value="#{c.observaciones}"
+												rendered="#{not c.editable}" />
+										</h:column>
+
+														<h:column>
+
+											<h:commandLink action="#{pedidoBean.edit(c)}"
+												class="btn btn-warning" rendered="#{not c.editable}">
+												<i class="far fa-edit"></i>
+											</h:commandLink>
+											<h:commandLink action="#{pedidoBean.save(c)}"
+												class="btn btn-success" rendered="#{c.editable}">
+												<i class="fas fa-save"></i>
+											</h:commandLink>
+										</h:column>
+									</h:dataTable>
+
+
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			</section>
+		</h:form>
+    </div>
+
+</h:body>
+
+</html>
